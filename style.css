@@ -1,0 +1,384 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#eef2f7;
+    color:#222;
+}
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+.container{
+    width:min(1200px,95%);
+    margin:20px auto;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+header h1{
+    color:#1b3c73;
+    margin-bottom:10px;
+    font-size:clamp(1.5rem,3vw,2.3rem);
+}
+
+header p{
+    color:#555;
+    font-size:1rem;
+    line-height:1.5;
+}
+
+/* =====================================================
+   CANVAS PANEL
+===================================================== */
+
+.canvasPanel{
+
+    width:100%;
+
+    background:white;
+
+    border-radius:12px;
+
+    box-shadow:0 4px 14px rgba(0,0,0,.15);
+
+    overflow:hidden;
+
+    margin-bottom:20px;
+}
+
+canvas{
+
+    display:block;
+
+    width:100%;
+
+    height:70vh;
+
+    min-height:420px;
+
+    max-height:700px;
+
+    background:white;
+
+}
+
+/* =====================================================
+   CONTROL PANEL
+===================================================== */
+
+.controlPanel{
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    box-shadow:0 4px 14px rgba(0,0,0,.15);
+
+    margin-bottom:20px;
+
+}
+
+.control{
+
+    margin-bottom:22px;
+
+}
+
+.control:last-child{
+
+    margin-bottom:0;
+
+}
+
+.control label{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:10px;
+
+    font-weight:bold;
+
+    color:#1b3c73;
+
+}
+
+.control span{
+
+    color:#d62828;
+
+}
+
+/* =====================================================
+   RANGE SLIDERS
+===================================================== */
+
+input[type=range]{
+
+    width:100%;
+
+    cursor:pointer;
+
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:10px;
+
+}
+
+button{
+
+    border:none;
+
+    background:#1b75d0;
+
+    color:white;
+
+    font-size:1rem;
+
+    padding:12px 28px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+button:hover{
+
+    background:#145ea8;
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+button:disabled{
+
+    background:#999;
+
+    cursor:not-allowed;
+
+}
+
+/* =====================================================
+   INFORMATION PANELS
+===================================================== */
+
+.infoPanel{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:12px;
+
+    box-shadow:0 4px 14px rgba(0,0,0,.15);
+
+    padding:18px;
+
+}
+
+.card h3{
+
+    text-align:center;
+
+    color:#1b3c73;
+
+    margin-bottom:14px;
+
+}
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+td{
+
+    padding:9px 4px;
+
+    border-bottom:1px solid #ddd;
+
+    font-size:.95rem;
+
+}
+
+td:last-child{
+
+    text-align:right;
+
+    font-weight:bold;
+
+    color:#d62828;
+
+}
+
+tr:last-child td{
+
+    border-bottom:none;
+
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width:900px){
+
+.infoPanel{
+
+    grid-template-columns:1fr;
+
+}
+
+canvas{
+
+    height:60vh;
+
+}
+
+}
+
+@media (max-width:700px){
+
+.container{
+
+    width:97%;
+
+}
+
+header h1{
+
+    font-size:1.5rem;
+
+}
+
+header p{
+
+    font-size:.95rem;
+
+}
+
+.controlPanel{
+
+    padding:16px;
+
+}
+
+.card{
+
+    padding:15px;
+
+}
+
+button{
+
+    width:100%;
+
+}
+
+canvas{
+
+    height:52vh;
+
+    min-height:340px;
+
+}
+
+}
+
+@media (max-width:480px){
+
+header{
+
+    margin-bottom:15px;
+
+}
+
+header p{
+
+    font-size:.9rem;
+
+}
+
+.control label{
+
+    font-size:.92rem;
+
+}
+
+td{
+
+    font-size:.88rem;
+
+}
+
+button{
+
+    font-size:.95rem;
+
+    padding:11px;
+
+}
+
+canvas{
+
+    height:48vh;
+
+    min-height:300px;
+
+}
+
+}

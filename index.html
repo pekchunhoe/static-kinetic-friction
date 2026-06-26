@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Inclined Plane Free Body Diagram Simulation</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Interactive Free-Body Diagram on an Inclined Plane</h1>
+        <p>
+            Adjust the angle of inclination and the block mass to observe the
+            forces acting on a block resting on an inclined plane.
+        </p>
+    </header>
+
+    <!-- ========================= -->
+    <!-- Simulation Canvas -->
+    <!-- ========================= -->
+
+    <section class="canvasPanel">
+
+        <canvas id="canvas"></canvas>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Controls -->
+    <!-- ========================= -->
+
+    <section class="controlPanel">
+
+        <div class="control">
+
+            <label for="angleSlider">
+                Angle of Inclination
+                <span id="angleValue">0°</span>
+            </label>
+
+            <input
+                id="angleSlider"
+                type="range"
+                min="0"
+                max="60"
+                step="1"
+                value="0">
+
+        </div>
+
+        <div class="control">
+
+            <label for="massSlider">
+                Mass of Block
+                <span id="massValue">2.0 kg</span>
+            </label>
+
+            <input
+                id="massSlider"
+                type="range"
+                min="2"
+                max="5"
+                step="0.1"
+                value="2">
+
+        </div>
+
+        <div class="buttons">
+
+            <button id="resetBtn">
+                RESET
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Live Physics Values -->
+    <!-- ========================= -->
+
+    <section class="infoPanel">
+
+        <div class="card">
+
+            <h3>Physics Values</h3>
+
+            <table>
+
+                <tr>
+                    <td>Weight, W</td>
+                    <td id="weightValue">19.62 N</td>
+                </tr>
+
+                <tr>
+                    <td>Normal Force, N</td>
+                    <td id="normalValue">19.62 N</td>
+                </tr>
+
+                <tr>
+                    <td>Friction, fr</td>
+                    <td id="frictionValue">0.00 N</td>
+                </tr>
+
+                <tr>
+                    <td>mg sin θ</td>
+                    <td id="parallelValue">0.00 N</td>
+                </tr>
+
+                <tr>
+                    <td>mg cos θ</td>
+                    <td id="perpendicularValue">19.62 N</td>
+                </tr>
+
+                <tr>
+                    <td>Acceleration</td>
+                    <td id="accelerationValue">0.00 m/s²</td>
+                </tr>
+
+                <tr>
+                    <td>Motion State</td>
+                    <td id="stateValue">
+                        Stationary (Static Friction)
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Simulation Constants</h3>
+
+            <table>
+
+                <tr>
+                    <td>Gravity</td>
+                    <td>9.81 m/s²</td>
+                </tr>
+
+                <tr>
+                    <td>Static Friction (μ<sub>s</sub>)</td>
+                    <td>0.40</td>
+                </tr>
+
+                <tr>
+                    <td>Kinetic Friction (μ<sub>k</sub>)</td>
+                    <td>0.20</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
