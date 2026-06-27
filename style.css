@@ -99,7 +99,7 @@ canvas{
 
 .control{
 
-    margin-bottom:22px;
+    margin-bottom:28px;
 
 }
 
@@ -127,21 +127,174 @@ canvas{
 
 .control span{
 
-    color:#d62828;
+    font-weight:bold;
+
+    font-size:1.08rem;
 
 }
 
-/* =====================================================
+/* Angle */
+
+label[for="angleSlider"] span{
+
+    color:#e53935;
+
+}
+
+/* Mass */
+
+label[for="massSlider"] span{
+
+    color:#1976d2;
+
+}
+
+/* μs */
+
+label[for="muSlider"] span{
+
+    color:#b8860b;
+
+}
+
+/*=====================================================
    RANGE SLIDERS
-===================================================== */
+=====================================================*/
 
 input[type=range]{
 
     width:100%;
 
+    height:8px;
+
+    cursor:pointer;
+
+    border-radius:6px;
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    background:#dddddd;
+
+    outline:none;
+
+}
+
+/* Chrome */
+
+input[type=range]::-webkit-slider-runnable-track{
+
+    height:8px;
+
+    border-radius:6px;
+
+}
+
+input[type=range]::-webkit-slider-thumb{
+
+    -webkit-appearance:none;
+
+    width:22px;
+
+    height:22px;
+
+    border-radius:50%;
+
+    background:white;
+
+    border:3px solid #444;
+
+    margin-top:-7px;
+
     cursor:pointer;
 
 }
+
+/* Firefox */
+
+input[type=range]::-moz-range-thumb{
+
+    width:22px;
+
+    height:22px;
+
+    border-radius:50%;
+
+    border:3px solid #444;
+
+    background:white;
+
+    cursor:pointer;
+
+}
+
+/*=========================================
+  Angle Slider (Red)
+=========================================*/
+
+#angleSlider{
+
+    accent-color:#e53935;
+
+}
+
+#angleSlider::-webkit-slider-runnable-track{
+
+    background:#e53935;
+
+}
+
+#angleSlider::-moz-range-track{
+
+    background:#e53935;
+
+}
+
+/*=========================================
+  Mass Slider (Blue)
+=========================================*/
+
+#massSlider{
+
+    accent-color:#1976d2;
+
+}
+
+#massSlider::-webkit-slider-runnable-track{
+
+    background:#1976d2;
+
+}
+
+#massSlider::-moz-range-track{
+
+    background:#1976d2;
+
+}
+
+/*=========================================
+  Static Friction Slider (Yellow)
+=========================================*/
+
+#muSlider{
+
+    accent-color:#FFD600;
+
+}
+
+#muSlider::-webkit-slider-runnable-track{
+
+    background:#FFD600;
+
+}
+
+#muSlider::-moz-range-track{
+
+    background:#FFD600;
+
+}
+
 
 /* =====================================================
    BUTTONS
@@ -380,5 +533,15 @@ canvas{
     min-height:300px;
 
 }
+
+}
+
+.control label sub{
+
+    font-size:70%;
+
+    vertical-align:sub;
+
+    line-height:0;
 
 }

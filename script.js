@@ -18,10 +18,13 @@ const ctx = canvas.getContext("2d");
 
 const angleSlider = document.getElementById("angleSlider");
 const massSlider = document.getElementById("massSlider");
+const muSlider = document.getElementById("muSlider");
 const resetBtn = document.getElementById("resetBtn");
 
 const angleValue = document.getElementById("angleValue");
 const massValue = document.getElementById("massValue");
+const muValue = document.getElementById("muValue");
+const muDisplay = document.getElementById("muDisplay");
 
 const weightValue = document.getElementById("weightValue");
 const normalValue = document.getElementById("normalValue");
@@ -36,7 +39,7 @@ const stateValue = document.getElementById("stateValue");
 =========================================================*/
 
 const G = 9.81;
-const MU_S = 0.40;
+let MU_S = 0.40;
 const MU_K = 0.20;
 
 const FORCE_SCALE = 5.2;      // Double arrow length
@@ -268,6 +271,16 @@ massSlider.addEventListener("input",()=>{
 
 });
 
+muSlider.addEventListener("input",()=>{
+
+    MU_S = Number(muSlider.value);
+
+    muValue.textContent = MU_S.toFixed(2);
+
+    muDisplay.textContent = MU_S.toFixed(2);
+
+});
+
 resetBtn.addEventListener(
     "click",
     resetSimulation
@@ -419,6 +432,8 @@ function updateInformation(){
     accelerationValue.textContent =
         round(block.acceleration) +
         " m/s²";
+
+    muDisplay.textContent = MU_S.toFixed(2);
 
 }
 
@@ -784,7 +799,7 @@ function drawAngle(){
 
         0,
 
-        45*scale,
+        65*scale,
 
         0,
 
@@ -794,17 +809,17 @@ function drawAngle(){
 
     ctx.stroke();
 
-    ctx.fillStyle="#222";
+    ctx.fillStyle="#000";
 
-    ctx.font=`${18*scale}px Arial`;
+    ctx.font=`bold ${34*scale}px Arial`;
 
     ctx.fillText(
 
         "θ",
 
-        40*scale,
+        55*scale,
 
-        -8*scale
+        -18*scale
 
     );
 
@@ -953,7 +968,7 @@ function drawVector(
     ctx.fillStyle = colour;
 
     ctx.strokeStyle = "#000";
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 4;
 
     ctx.font = `bold ${28*scale}px Arial`;
 
@@ -1005,7 +1020,7 @@ function drawFreeBodyDiagram(){
         mg sin θ
     ----------------------------------------*/
 
-    if(plane.angle>0){
+    if(plane.angle > 0){
 
         drawVector(
 
@@ -1051,20 +1066,24 @@ function drawFreeBodyDiagram(){
         mg cos θ
     ----------------------------------------*/
 
-    drawVector(
+    if(plane.angle > 0){
 
-        0,
-        0,
+        drawVector(
 
-        Math.PI/2,
+            0,
+            0,
 
-        CosLen,
+            Math.PI/2,
 
-        "#9c27b0",
+            CosLen,
 
-        "mg cosθ"
+            "#9c27b0",
 
-    );
+            "mg cosθ"
+
+        );
+
+    }
 
     /*----------------------------------------
         Normal
@@ -1396,6 +1415,12 @@ function initialise(){
 
     massValue.textContent=
         force.mass.toFixed(1)+" kg";
+
+    muValue.textContent = MU_S.toFixed(2);
+
+    if(muSlider){
+        muSlider.value = MU_S;
+    }
 
     updatePlane();
 

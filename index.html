@@ -72,6 +72,23 @@
 
         </div>
 
+        <div class="control">
+
+            <label for="muSlider">
+                Coefficient of Static Friction (μₛ)
+                <span id="muValue">0.40</span>
+            </label>
+
+            <input
+                id="muSlider"
+                type="range"
+                min="0.40"
+                max="0.70"
+                step="0.01"
+                value="0.40">
+
+        </div>
+
         <div class="buttons">
 
             <button id="resetBtn">
@@ -147,12 +164,12 @@
                 </tr>
 
                 <tr>
-                    <td>Static Friction (μ<sub>s</sub>)</td>
-                    <td>0.40</td>
+                    <td>Static Friction (μₛ)</td>
+                    <td id="muDisplay">0.40</td>
                 </tr>
 
                 <tr>
-                    <td>Kinetic Friction (μ<sub>k</sub>)</td>
+                    <td>Kinetic Friction (μₖ)</td>
                     <td>0.20</td>
                 </tr>
 
